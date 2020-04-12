@@ -3,6 +3,7 @@
     <nav-bar />
     <v-content>
       <v-app>
+        Router
         <router-view></router-view>
       </v-app>
     </v-content>
@@ -10,20 +11,18 @@
 </template>
 
 <script>
-import NavBar from './components/NavBar'
+import NavBar from "./components/NavBar";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     NavBar
   },
 
   data: () => ({
     //
-  }),
+  })
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
