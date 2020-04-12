@@ -1,6 +1,7 @@
 <template>
   <div class="register">
     <v-container>
+      <h1>Register</h1>
       <v-form
         ref="form"
         v-model="valid"
