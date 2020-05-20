@@ -1,28 +1,43 @@
 [
     {
+        "firstName": "Admin",
+        "lastName": "Admin",
         "email": "admin@gmail.com",
         "password": "admin1234",
-        "role": "admin"
+        "role": "admin",
+        "phone": "9999999999"
     },
     {
+        "firstName": "Shariq",
+        "lastName": "Ansari",
         "email": "shariq@gmail.com",
         "password": "asdf1234",
-        "role": "manager"
+        "role": "manager",
+        "phone": "7666980887"
     },
     {
+        "firstName": "Rohan",
+        "lastName": "Dhevershetty",
         "email": "rohan@gmail.com",
         "password": "asdf1234",
-        "role": "manager"
+        "role": "manager",
+        "phone": "9812345678"
     },
     {
+        "firstName": "Adinath",
+        "lastName": "Desai",
         "email": "adi@gmail.com",
         "password": "asdf1234",
-        "role": "user"
+        "role": "user",
+        "phone": "9823456789"
     },
     {
+        "firstName": "Siddesh",
+        "lastName": "Kadam",
         "email": "sid@gmail.com",
         "password": "asdf1234",
-        "role": "user"
+        "role": "user",
+        "phone": "9834567890"
     }
 
 ]

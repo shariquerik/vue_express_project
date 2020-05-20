@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const config = require('../config/config')
 
 module.exports = {
-    register(req, res, next) {
+    validateField(req, res, next) {
         const schema = {
             email: Joi.string().email(),
             password: Joi.string().regex(

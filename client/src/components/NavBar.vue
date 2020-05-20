@@ -3,7 +3,7 @@
     <header class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
       <div class="flex items-center justify-between px-4 py-3 sm:p-0">
         <div>
-          <a href="#/home"><img class="h-8" src="../assets/logo.png" alt="Workcation"></a>
+          <a href="#/"><img class="h-8" src="../assets/logo.png" alt="RikApp"></a>
         </div>
         <div class="sm:hidden">
           <button @click="isOpen = !isOpen" type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
@@ -18,7 +18,7 @@
         <a href="#/dashboard" v-if="this.isLoggedIn" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800">Dashboard</a>
         <a href="#/users" v-if="this.isLoggedIn && this.isAdmin === 'admin'" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Users</a>
         <a href="#/login" v-if="!this.isLoggedIn" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Log In</a>
-        <a href="#/home" @click="logout" v-if="this.isLoggedIn" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Log Out</a>
+        <a href="#/" @click="logout" v-if="this.isLoggedIn" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Log Out</a>
         <a href="#/register" v-if="!this.isLoggedIn" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Sign Up</a>
       </nav>
     </header>

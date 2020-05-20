@@ -6,11 +6,12 @@ module.exports = (app) => {
     
     //register
     app.post('/register',
-        AuthenticationControllerPolicy.register,
+        AuthenticationControllerPolicy.validateField,
         AuthenticationController.register),
 
     //login
     app.post('/login',
+        AuthenticationControllerPolicy.validateField,
         AuthenticationController.login),
 
     //get users
