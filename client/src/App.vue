@@ -1,11 +1,7 @@
 <template>
   <div>
     <nav-bar />
-    <v-content>
-      <v-app>
-        <router-view></router-view>
-      </v-app>
-    </v-content>
+    <router-view></router-view>
     <notifications position="bottom right" group="notify" />
   </div>
 </template>

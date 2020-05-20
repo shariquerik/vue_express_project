@@ -1,8 +1,6 @@
 <template>
   <div id="home">
-      <v-container>
-          <h2>Home Page</h2>
-      </v-container>
+    <h2>Home Page</h2>
   </div>
 </template>
 

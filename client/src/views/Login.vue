@@ -1,36 +1,5 @@
 <template>
   <div class="register">
-    <!-- <v-container>
-      <h2>Login</h2>
-      <v-form
-        ref="form"
-      >
-        <v-col>
-          <v-row>
-            <v-text-field
-              type="email"
-              label="Email"
-              v-model="form.email"
-              outlined
-            ></v-text-field>
-          </v-row>
-          <v-row>
-            <v-text-field
-              type="password"
-              label="Password"
-              v-model="form.password"
-              outlined
-            ></v-text-field>
-          </v-row>
-          <v-row class="red-alert" v-if="error">
-            <p>{{ error }}</p>
-          </v-row>
-          <v-row>
-            <v-btn @click="login" outlined color="blue">Login</v-btn>
-          </v-row>
-        </v-col>
-      </v-form>
-    </v-container> -->
     <div class="main">
       <p class="sign" align="center">Sign in</p>
       <form class="form1">

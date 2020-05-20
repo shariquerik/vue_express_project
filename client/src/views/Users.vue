@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <v-container>
-        <v-btn @click="editrole" outlined color="blue">Edit</v-btn>
-        <v-btn v-if="this.edit" @click="save" v-model="this.users" outlined color="blue">Save</v-btn>
-        <div v-if="!edit">
-            <li v-for="user in this.users" :key="user.id">
-                {{ user.email}} - {{user.role}}
-            </li>
-        </div>
-        <div v-else>
-            <li v-for="user in this.users" :key="user.id">
-                {{ user.email }} - 
-                <select class="select" v-model="user.role">
-                    <option value="user">user</option>
-                    <option value="manager">manager</option>
-                    <option value="admin">admin</option>
-                </select>
-            </li>
-        </div>
-    </v-container>
+  <div> 
+    <button @click="editrole" outlined color="blue">Edit</button>
+    <button v-if="this.edit" @click="save" outlined color="blue">Save</button>
+    <div v-if="!edit">
+        <li v-for="user in this.users" :key="user.id">
+            {{ user.email}} - {{user.role}}
+        </li>
+    </div>
+    <div v-else>
+        <li v-for="user in this.users" :key="user.id">
+            {{ user.email }} - 
+            <select class="select" v-model="user.role">
+                <option value="user">user</option>
+                <option value="manager">manager</option>
+                <option value="admin">admin</option>
+            </select>
+        </li>
+    </div>
   </div>
 </template>
 
@@ -30,8 +28,7 @@ export default {
     data () {
         return {
             users: [],
-            edit: false,
-            selected: ''
+            edit: false
         }
     },
     methods:{
