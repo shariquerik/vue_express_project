@@ -1,0 +1,28 @@
+[
+    {
+        "email": "admin@gmail.com",
+        "password": "admin1234",
+        "role": "admin"
+    },
+    {
+        "email": "shariq@gmail.com",
+        "password": "asdf1234",
+        "role": "manager"
+    },
+    {
+        "email": "rohan@gmail.com",
+        "password": "asdf1234",
+        "role": "manager"
+    },
+    {
+        "email": "adi@gmail.com",
+        "password": "asdf1234",
+        "role": "user"
+    },
+    {
+        "email": "sid@gmail.com",
+        "password": "asdf1234",
+        "role": "user"
+    }
+
+]

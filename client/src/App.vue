@@ -6,6 +6,7 @@
         <router-view></router-view>
       </v-app>
     </v-content>
+    <notifications position="bottom right" group="notify" />
   </div>
 </template>
 
@@ -16,14 +17,12 @@ export default {
   name: 'App',
   components: {
     NavBar
-  },
-
-  data: () => ({
-    //
-  }),
+  }
 };
 </script>
 
-<style scoped>
-
+<style>
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+  }
 </style>

@@ -1,6 +1,8 @@
 <template>
-  <div class="home">
-
+  <div id="home">
+      <v-container>
+          <h2>Home Page</h2>
+      </v-container>
   </div>
 </template>
 
