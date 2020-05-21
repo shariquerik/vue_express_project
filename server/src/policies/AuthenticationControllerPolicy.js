@@ -5,32 +5,20 @@ const config = require('../config/config')
 module.exports = {
     validateField(req, res, next) {
         const schema = {
-            email: Joi.string().email(),
+            email: Joi.string().email().required(),
             password: Joi.string().regex(
                 new RegExp('^[a-zA-Z0-9]{6,32}$')
-            ),
-            role: Joi.string()
+            ).required()
         }
         const { error, value } = Joi.validate(req.body, schema)
 
         if (error) {
-            switch (error.details[0].context.key) {
-                case 'email':
-                    res.status(400).send({
-                        error: 'You must provide a valid email address'
-                    })
-                    break
-                case 'password':
-                    res.status(400).send({
-                        error: 'The password provide is not valid.'
-                    })
-                    break
-                default:
-                    res.status(400).send({
-                        error: 'Invalid registration information'
-                    })
-
-            }
+            console.log(error)
+            res.status(400).send({
+                error: error.details[0].message,
+                field: error.details[0].context.key,
+                type: error.details[0].type
+            })
         } else {
             next()
         }

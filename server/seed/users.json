@@ -5,7 +5,7 @@
         "email": "admin@gmail.com",
         "password": "admin1234",
         "role": "admin",
-        "phone": "9999999999"
+        "phone": 9999999999
     },
     {
         "firstName": "Shariq",
@@ -13,7 +13,7 @@
         "email": "shariq@gmail.com",
         "password": "asdf1234",
         "role": "manager",
-        "phone": "7666980887"
+        "phone": 7666980887
     },
     {
         "firstName": "Rohan",
@@ -21,7 +21,7 @@
         "email": "rohan@gmail.com",
         "password": "asdf1234",
         "role": "manager",
-        "phone": "9812345678"
+        "phone": 9812345678
     },
     {
         "firstName": "Adinath",
@@ -29,7 +29,7 @@
         "email": "adi@gmail.com",
         "password": "asdf1234",
         "role": "user",
-        "phone": "9823456789"
+        "phone": 9823456789
     },
     {
         "firstName": "Siddesh",
@@ -37,7 +37,7 @@
         "email": "sid@gmail.com",
         "password": "asdf1234",
         "role": "user",
-        "phone": "9834567890"
+        "phone": 9834567890
     }
 
 ]

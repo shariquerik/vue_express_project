@@ -7,14 +7,22 @@
           <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
             Email
           </label>
-          <input v-model="form.email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Email">
+          <input v-model="form.email" :class="{'border-red-500 mb-3': this.field === 'email'}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Email">
+          <p v-if="this.field === 'email'" class="text-red-500 text-xs italic">{{this.error}}</p>
         </div>
-        <div class="mb-6">
+        <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
             Password
           </label>
-          <input v-model="form.password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="************">
-          <!-- <p class="text-red-500 text-xs italic">Please choose a password.</p> -->
+          <input v-model="form.password" :class="{'border-red-500 mb-3': this.field === 'password'}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="************">
+          <p v-if="this.field === 'password'" class="text-red-500 text-xs italic">{{this.error}}</p>
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            Confirm Password
+          </label>
+          <input v-model="form.confirmPassword" :class="{'border-red-500 mb-3': this.field === 'confirmPassword'}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="************">
+          <p v-if="this.field === 'confirmPassword'" class="text-red-500 text-xs italic">{{this.error}}</p>
         </div>
         <div class="flex items-center justify-between">
           <button @click="register" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
@@ -41,32 +49,35 @@ export default {
         form:{
           email: '',
           password: '',
+          confirmPassword: ''
         },
-        error: null
+        error: '',
+        field: ''
       }
     },
     methods: {
-      notify(type,text){
-        this.$notify({
-          group: 'notify', type, text
-        })
-      },
       async register() {
         try {
-          const response = await AuthenticationService.register({
-              email: this.form.email,
-              password: this.form.password
-          })
-          console.log(response.data)
-          this.error = null
-          this.$router.push({name: 'login'})
-        } catch (error) {
-          this.error = error.response.data.error
-          if(this.form.email === '' || this.form.password === ''){
-            this.notify('error', 'Email or password is required.')
-          }else{
-            this.notify('error', this.error)
+          if(this.form.password === this.form.confirmPassword){
+            const response = await AuthenticationService.register({
+                email: this.form.email,
+                password: this.form.password
+            })
+            console.log(response.data)
+            this.error = ''
+            this.field = ''
+            this.$router.push({name: 'login'})
           }
+          else{
+            this.field = 'confirmPassword'
+            this.error = 'Password and Confirm password must be same'
+          }
+        } catch (error) {
+          if(error.response.data.type === 'string.regex.base')
+            this.error = 'password length should be atleast 6 and it should be only alphanumeric.'
+          else
+            this.error = error.response.data.error
+          this.field = error.response.data.field
         }
         
       }

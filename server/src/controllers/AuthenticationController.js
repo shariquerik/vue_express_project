@@ -20,8 +20,9 @@ module.exports = {
                 token: jwtSignUser(userJson)
             })
         } catch (err) {
-            res.status(400).send({
-                error: 'This email is already in use.'
+            res.status(403).send({
+                error: 'This email is already in use.',
+                field: 'email'
             })
         }
     },
@@ -35,13 +36,15 @@ module.exports = {
             })
             if(!user) {
                 return res.status(403).send({
-                    error: 'User not found'
+                    error: 'User not found',
+                    field: 'email'
                 })
             }
             const isPasswordValid = await user.comparePassword(password)
             if(!isPasswordValid){
                 return res.status(403).send({
-                    error: 'The login password is incorrect'
+                    error: 'The login password is incorrect',
+                    field: 'password'
                 })
             }
 
