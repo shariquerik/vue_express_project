@@ -3,14 +3,14 @@
     <button @click="editrole" outlined color="blue">Edit</button>
     <button v-if="this.edit" @click="save" outlined color="blue">Save</button>
     <div v-if="!edit">
-        <li v-for="user in this.users" :key="user.id">
+        <li class="list-none" v-for="user in this.users" :key="user.id">
             {{ user.email}} - {{user.role}}
         </li>
     </div>
     <div v-else>
-        <li v-for="user in this.users" :key="user.id">
+        <li class="list-none" v-for="user in this.users" :key="user.id">
             {{ user.email }} - 
-            <select class="select" v-model="user.role">
+            <select class="select p-1" v-model="user.role">
                 <option value="user">user</option>
                 <option value="manager">manager</option>
                 <option value="admin">admin</option>
@@ -76,12 +76,4 @@ export default {
 </script>
 
 <style scoped>
-    li{
-        list-style: none;
-    }
-    .select {
-        padding: 3px;
-        outline: 2px;
-        outline-color: black;
-    }
 </style>

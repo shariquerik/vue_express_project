@@ -19,6 +19,18 @@ export default{
         state.isUserLoggedIn = false
       }
       
+    },
+    setBookmark(state, bookmarked){
+      const id = (e) => e === bookmarked
+      const index = state.user.bookmarked.findIndex(id)
+      if(index === -1)
+        state.user.bookmarked = [...state.user.bookmarked, bookmarked]
+    },
+    setUnbookmark(state, unbookmarked){
+      const id = (e) => e === unbookmarked
+      const index = state.user.bookmarked.findIndex(id)
+      if(index !== -1)
+        state.user.bookmarked.splice(index,1)
     }
   },
   actions: {
@@ -27,6 +39,12 @@ export default{
     },
     setUser({commit}, user){
       commit('setUser', user)
+    },
+    setBookmark({commit}, bookmarked){
+      commit('setBookmark', bookmarked)
+    },
+    setUnbookmark({commit}, unbookmarked){
+      commit('setUnbookmark', unbookmarked)
     }
   }
 }

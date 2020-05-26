@@ -9,16 +9,43 @@
         <div class="text-gray-600">{{this.user.phone}}</div>
       </div>
     </div>
+    <div>
+        <li class="list-none" v-for="product in this.products" :key="product.id">
+            {{ product.productName}} - {{product.price}}
+        </li>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import ProductsService from '../services/ProductsService'
 
 export default {
   name: 'Dashboard',
+  data (){
+    return {
+      products: []
+    }
+  },
   computed: mapState({
     user: state => state.auth.user
-  })
+  }),
+  async mounted () {
+        try{
+          const allProducts = (await ProductsService.index()).data
+          for(let i=0; i<allProducts.length; i++){
+            for(let j=0; j<this.user.bookmarked.length; j++){
+              if(allProducts[i].id === this.user.bookmarked[j])
+                this.products.push(allProducts[i])
+            }
+          }
+        }
+        catch(error){
+            console.log(error)
+        }
+        
+        
+    }
 }
 </script>

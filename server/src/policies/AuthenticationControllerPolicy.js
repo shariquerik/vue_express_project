@@ -29,11 +29,13 @@ module.exports = {
         if(authHeader) {
             const token = authHeader.split(' ')[1]
             jwt.verify(token, config.authentication.jwtSecret, function (err, decoded){
-                if (err) throw err;
-                if(decoded.role != 'admin'){
-                    res.status(400).send("Access Denied, contact your admin.")
-                }else{
-                    next()
+                if (err) throw err
+                else{
+                    if(decoded.role != 'admin'){
+                        res.status(400).send("Access Denied, contact your admin.")
+                    }else{
+                        next()
+                    }
                 }
             })
         }

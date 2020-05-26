@@ -1,0 +1,26 @@
+[
+    {
+        "productName": "Rice",
+        "price": "100"
+    },
+    {
+        "productName": "Wheat",
+        "price": "110"
+    },
+    {
+        "productName": "Daal",
+        "price": "120"
+    },
+    {
+        "productName": "Potato",
+        "price": "20"
+    },
+    {
+        "productName": "Tomato",
+        "price": "15"
+    },
+    {
+        "productName": "Onion",
+        "price": "45"
+    }
+]

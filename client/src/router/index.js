@@ -5,6 +5,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Register from '../views/Register.vue'
 import Login from '../views/Login.vue'
 import Users from '../views/Users.vue'
+import Product from '../views/Product.vue'
 import { isLoggedIn } from "../middleware/blockURL"
 
 Vue.use(VueRouter)
@@ -35,6 +36,11 @@ Vue.use(VueRouter)
     path: '/users',
     name: 'users',
     component: Users
+  },
+  {
+    path: '/product/:productId',
+    name: 'product',
+    component: Product
   }
 ]
 

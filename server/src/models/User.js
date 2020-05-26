@@ -12,9 +12,18 @@ async function hashPassword(user, options) {
 module.exports = (sequelize, DataTypes) => {
     //User model
     const User = sequelize.define('User', {
-        firstName: DataTypes.STRING,
-        lastName: DataTypes.STRING,
-        phone: DataTypes.INTEGER,
+        firstName: {
+            type: DataTypes.STRING,
+            defaultValue: ''
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            defaultValue: ''
+        },
+        phone: {
+            type: DataTypes.INTEGER,
+            defaultValue: 'user'
+        },
         email: {
             type: DataTypes.STRING,
             unique: true
@@ -23,7 +32,18 @@ module.exports = (sequelize, DataTypes) => {
         role: {
             type: DataTypes.STRING,
             defaultValue: 'user'
+        },
+        bookmarked: { 
+            type: DataTypes.STRING, 
+            get: function() {
+                return JSON.parse(this.getDataValue('bookmarked'));
+            }, 
+            set: function(val) {
+                return this.setDataValue('bookmarked', JSON.stringify(val));
+            },
+            defaultValue: '[]'
         }
+
     }, {
         hooks: {
             beforeUpdate: hashPassword,

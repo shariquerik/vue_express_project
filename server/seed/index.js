@@ -1,10 +1,12 @@
 const {
     sequelize,
-    User
+    User,
+    Product
 } = require('../src/models')
 
 const Promise = require('bluebird')
 const users = require('./users.json')
+const products = require('./products.json')
 
 sequelize.sync({force :true})
     .then(async function(){
@@ -12,6 +14,11 @@ sequelize.sync({force :true})
         await Promise.all(
             users.map(user => {
                 User.create(user)
+            })
+        )
+        await Promise.all(
+            products.map(product => {
+                Product.create(product)
             })
         )
 
