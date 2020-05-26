@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         phone: {
             type: DataTypes.INTEGER,
-            defaultValue: 'user'
+            defaultValue: ''
         },
         email: {
             type: DataTypes.STRING,

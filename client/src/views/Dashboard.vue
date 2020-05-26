@@ -9,7 +9,7 @@
         <div class="text-gray-600">{{this.user.phone}}</div>
       </div>
     </div>
-    <div>
+    <div class=" container mx-auto mt-5">
         <li class="list-none" v-for="product in this.products" :key="product.id">
             {{ product.productName}} - {{product.price}}
         </li>
@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import ProductsService from '../services/ProductsService'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Dashboard',
