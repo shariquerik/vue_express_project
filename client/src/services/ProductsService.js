@@ -8,7 +8,7 @@ export default {
         return Api().put(`products/${product.id}`, product)
     },
     product (productId){
-        return Api().get(`product/${productId}`)
+        return Api().get(`products/${productId}`)
     }
 
 }

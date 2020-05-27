@@ -20,6 +20,7 @@
         <a href="#/login" v-if="!this.isLoggedIn" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Log In</a>
         <a href="#/" @click="logout" v-if="this.isLoggedIn" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Log Out</a>
         <a href="#/register" v-if="!this.isLoggedIn" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Sign Up</a>
+        <a :href="'/#/users/' + user.id" v-if="this.isLoggedIn" class="mt-1 block px-2 py-1 rounded-full hover:bg-gray-800 sm:mt-0 sm:ml-2"><img class="h-5 rounded-full" src="../assets/logo.png" alt="RikApp"></a>
       </nav>
     </header>
   </div>
@@ -49,7 +50,8 @@ export default {
     },
     computed: mapState({
       isLoggedIn: state => state.auth.isUserLoggedIn,
-      isAdmin: state => state.auth.user.role
+      isAdmin: state => state.auth.user.role,
+      user: state => state.auth.user
     })
 }
 </script>

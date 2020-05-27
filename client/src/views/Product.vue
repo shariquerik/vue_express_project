@@ -1,12 +1,16 @@
 <template>
-  <div id="product" class=" container mx-auto mt-8">
-    <h1 class=" text-3xl">Product List</h1>
-    <div class=" ml-5 mt-5">
-      <li class="list-none">
-         {{product.productName}} - {{product.price}}
-         <button v-if="!isbookmarked" @click="Bookmarked">book</button>
-         <button v-else @click="Unbookmarked">unbook</button>
-      </li>
+  <div id="product" class=" flex-row container mx-auto mt-8">
+    <div class="flex">
+        <div class="">
+          <h1 class="text-3xl">{{product.productName}}</h1>
+        </div>
+        <div class="ml-2 flex content-center" v-if="this.isLoggedIn">
+          <button class="p-2" v-if="!this.isbookmarked" @click="Bookmarked">book</button>
+          <button class="p-2" v-else @click="Unbookmarked">unbook</button>
+        </div>
+    </div>
+    <div class="ml-5 mt-5">
+      <h2>Price: ₹{{product.price}}/kg</h2>
     </div>
   </div>
 </template>
@@ -21,6 +25,7 @@ export default {
   data(){
     return{
       product: [],
+      bookmarked: [],
       isbookmarked: false
     }
   },
@@ -41,6 +46,7 @@ export default {
     }
   },
   async mounted() {
+    if(this.user) this.bookmarked = this.user.bookmarked
     const id = this.$route.params.productId
     this.product = (await ProductsService.product(id)).data
     const pid = (e) => e === this.product.id
@@ -51,7 +57,7 @@ export default {
         this.isbookmarked = false
   },
     computed: mapState({
-      bookmarked: state => state.auth.user.bookmarked,
+      isLoggedIn: state => state.auth.isUserLoggedIn,
       user: state => state.auth.user
     })
 }

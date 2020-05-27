@@ -1,7 +1,7 @@
 <template>
-  <div> 
-    <button @click="editrole" outlined color="blue">Edit</button>
-    <button v-if="this.edit" @click="save" outlined color="blue">Save</button>
+  <div class="container mx-auto"> 
+    <button v-if="!this.edit" @click="Edit" outlined color="blue">Edit</button>
+    <button v-else @click="save" outlined color="blue">Save</button>
     <div v-if="!edit">
         <li class="list-none" v-for="user in this.users" :key="user.id">
             {{ user.email}} - {{user.role}}
@@ -10,7 +10,7 @@
     <div v-else>
         <li class="list-none" v-for="user in this.users" :key="user.id">
             {{ user.email }} - 
-            <select class="select p-1" v-model="user.role">
+            <select class="p-1" v-model="user.role">
                 <option value="user">user</option>
                 <option value="manager">manager</option>
                 <option value="admin">admin</option>
@@ -37,7 +37,7 @@ export default {
             group: 'notify', type, text
             })
         },
-        editrole(){
+        Edit(){
             this.edit = !this.edit
         },
         async save(){

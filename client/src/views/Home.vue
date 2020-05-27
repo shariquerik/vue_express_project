@@ -3,7 +3,7 @@
     <h1 class=" text-3xl">Product List</h1>
     <div class=" ml-5 mt-5">
       <li class="list-none" v-for="product in this.products" :key="product.id">
-          <a :href="'/#/product/' + product.id">{{product.productName}} - {{product.price}}</a>
+          <a :href="'/#/products/' + product.id">{{product.productName}}</a>
       </li>
     </div>
   </div>

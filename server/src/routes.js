@@ -19,6 +19,10 @@ module.exports = (app) => {
     app.get('/users',
         AuthenticationControllerPolicy.isAdmin,
         UsersController.index)
+
+    //get user
+    app.get('/users/:userId',
+        UsersController.user)
     
     //update user
     app.put('/users/:userId',
@@ -33,7 +37,7 @@ module.exports = (app) => {
         ProductsController.index)
 
     //update product
-    app.get('/product/:productId',
+    app.get('/products/:productId',
         ProductsController.product)
 
     //update product
